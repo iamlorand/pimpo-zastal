@@ -19,6 +19,7 @@ use Frontend\Task\Mapper\TaskDbMapper;
 use Frontend\Task\Service\CategoryMockService;
 use Frontend\Task\Service\CategoryServiceInterface;
 use Frontend\Task\Service\TaskMockService;
+use Frontend\Task\Service\TaskService;
 use Frontend\Task\Service\TaskServiceInterface;
 use Zend\ServiceManager\Factory\InvokableFactory;
 
@@ -45,11 +46,11 @@ class ConfigProvider
     {
         return [
             'factories' => [
-                TaskMockService::class => InvokableFactory::class,
+                TaskService::class => InvokableFactory::class,
                 CategoryMockService::class => InvokableFactory::class,
             ],
             'aliases' => [
-                TaskServiceInterface::class => TaskMockService::class,
+                TaskServiceInterface::class => TaskService::class,
                 'TaskService' => TaskServiceInterface::class,
                 CategoryServiceInterface::class => CategoryMockService::class,
                 'CategoryService' => CategoryServiceInterface::class,

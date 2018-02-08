@@ -105,7 +105,13 @@ class TaskController extends AbstractActionController
      */
     public function listAction(): ResponseInterface
     {
+//        $dateLike = date('o-m') . '%';
+//        $options['conditions'] = [
+//            "date LIKE '$dateLike'"
+//        ];
+
         $data['taskList'] = $this->taskService->listTask();
+//        $data['taskList'] = $this->taskService->listTaskByDate($options);
         $data['pageTitle'] = 'Task list';
 
         return new HtmlResponse($this->template('task::list', $data));

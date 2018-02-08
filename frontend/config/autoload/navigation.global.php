@@ -129,6 +129,18 @@ return [
                         ],
                         [
                             'options' => [
+                                'label' => 'Tasks',
+                                'route' => [
+                                    'route_name' => 'task',
+                                    'options' => [
+                                        'reuse_result_params' => false,
+                                    ]
+                                ],
+                                'icon' => '',
+                            ]
+                        ],
+                        [
+                            'options' => [
                                 'label' => 'Contribute',
                                 'uri' => 'https://github.com/dotkernel',
                                 'icon' => '',

@@ -19,40 +19,37 @@ class TaskMockService implements TaskServiceInterface, MapperManagerAwareInterfa
 
     public function addTask(TaskEntity $entity, array $options = [])
     {
-        $mapper = $this->getMapperManager()->get(TaskEntity::class);
-        $result = $mapper->save($entity);
 
-        return $result;
     }
 
     public function updateTask(TaskEntity $entity, array $options = [])
     {
-        $mapper = $this->getMapperManager()->get(TaskEntity::class);
-        $result = $mapper->save($entity);
 
-        return $result;
     }
 
     public function listTask(array $options = [])
     {
-        $mapper = $this->getMapperManager()->get(TaskEntity::class);
-        $result = $mapper->find('all', $options);
 
-        return $result;
     }
 
     public function getTask(int $taskId, array $options = [])
     {
-        $mapper = $this->getMapperManager()->get(TaskEntity::class);
-        $result = $mapper->get($taskId);
 
-        return $result;
     }
 
     public function deleteTask(TaskEntity $entity, array $options = [])
     {
+
+    }
+
+    public function listTaskByDate(array $options = [])
+    {
+//        $options['conditions'] = [
+//            "date LIKE '2017%'"
+//        ];
+
         $mapper = $this->getMapperManager()->get(TaskEntity::class);
-        $result = $mapper->delete($entity);
+        $result = $mapper->find('all', $options);
 
         return $result;
     }

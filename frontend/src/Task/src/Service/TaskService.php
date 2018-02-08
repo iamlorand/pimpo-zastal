@@ -18,22 +18,41 @@ class TaskService implements TaskServiceInterface, MapperManagerAwareInterface
 
     public function addTask(TaskEntity $entity, array $options = [])
     {
-        // TODO: Implement addTask() method.
+        $mapper = $this->getMapperManager()->get(TaskEntity::class);
+        $result = $mapper->save($entity);
+
+        return $result;
     }
-    public function updateTask(TaskEntity $entity, int $taskId, array $options = [])
+
+    public function updateTask(TaskEntity $entity, array $options = [])
     {
-        // TODO: Implement updateTask() method.
+        $mapper = $this->getMapperManager()->get(TaskEntity::class);
+        $result = $mapper->save($entity);
+
+        return $result;
     }
+
     public function listTask(array $options = [])
     {
-        // TODO: Implement listTask() method.
+        $mapper = $this->getMapperManager()->get(TaskEntity::class);
+        $result = $mapper->find('all', $options);
+
+        return $result;
     }
+
     public function getTask(int $taskId, array $options = [])
     {
-        // TODO: Implement getTask() method.
+        $mapper = $this->getMapperManager()->get(TaskEntity::class);
+        $result = $mapper->get($taskId);
+
+        return $result;
     }
-    public function deleteTask(int $taskId, array $options = [])
+
+    public function deleteTask(TaskEntity $entity, array $options = [])
     {
-        // TODO: Implement deleteTask() method.
+        $mapper = $this->getMapperManager()->get(TaskEntity::class);
+        $result = $mapper->delete($entity);
+
+        return $result;
     }
 }
