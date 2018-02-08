@@ -57,9 +57,10 @@ class TaskFieldset extends Fieldset implements InputFilterProviderInterface
 
         $this->add([
             'name' => 'categoryId',
-            'type' => 'text',
+            'type' => 'select',
             'options' => [
-                'label' => 'Category'
+                'label' => 'Category',
+                'value_options' => [],
             ],
             'attributes' => [
                 'placeholder' => 'Enter categoryId...'

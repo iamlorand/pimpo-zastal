@@ -10,10 +10,14 @@ declare(strict_types=1);
 namespace Frontend\Task;
 
 use Dot\Mapper\Factory\DbMapperFactory;
+use Frontend\Task\Entity\CategoryEntity;
 use Frontend\Task\Entity\TaskEntity;
 use Frontend\Task\Form\TaskForm;
 use Frontend\Task\Form\TaskFieldset;
+use Frontend\Task\Mapper\CategoryDbMapper;
 use Frontend\Task\Mapper\TaskDbMapper;
+use Frontend\Task\Service\CategoryMockService;
+use Frontend\Task\Service\CategoryServiceInterface;
 use Frontend\Task\Service\TaskMockService;
 use Frontend\Task\Service\TaskServiceInterface;
 use Zend\ServiceManager\Factory\InvokableFactory;
@@ -42,10 +46,13 @@ class ConfigProvider
         return [
             'factories' => [
                 TaskMockService::class => InvokableFactory::class,
+                CategoryMockService::class => InvokableFactory::class,
             ],
             'aliases' => [
                 TaskServiceInterface::class => TaskMockService::class,
                 'TaskService' => TaskServiceInterface::class,
+                CategoryServiceInterface::class => CategoryMockService::class,
+                'CategoryService' => CategoryServiceInterface::class,
             ]
         ];
     }
@@ -56,9 +63,11 @@ class ConfigProvider
             'mapper_manager' => [
                 'factories' => [
                     TaskDbMapper::class => DbMapperFactory::class,
+                    CategoryDbMapper::class => DbMapperFactory::class,
                 ],
                 'aliases' => [
                     TaskEntity::class => TaskDbMapper::class,
+                    CategoryEntity::class => CategoryDbMapper::class,
                 ]
             ]
         ];

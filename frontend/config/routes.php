@@ -46,4 +46,4 @@ $app->route('/user[/{action}]', [FrontendUserController::class, UserController::
 
 $app->route('/contact[/{action}]', [ContactController::class], ['GET', 'POST'], 'contact');
 $app->route('/page[/{action}]', [PageController::class], ['GET', 'POST'], 'page');
-$app->route('/task[/{action}]', [TaskController::class], ['GET', 'POST'], 'task');
+$app->route('/task[/{action}[/{id:[^/]*}]]', [TaskController::class], ['GET', 'POST'], 'task');

@@ -55,7 +55,7 @@ class TaskForm extends Form
             'type' => 'submit',
             'attributes' => [
                 'type' => 'submit',
-                'value' => 'Add task'
+                'value' => 'Save task'
             ]
         ], ['priority' => -105]);
     }

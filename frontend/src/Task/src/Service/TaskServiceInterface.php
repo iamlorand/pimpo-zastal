@@ -25,11 +25,10 @@ interface TaskServiceInterface
      * Update an existing task
      *
      * @param TaskEntity $entity
-     * @param int $taskId
      * @param array $options
      * @return mixed
      */
-    public function updateTask(TaskEntity $entity, int $taskId, array $options = []);
+    public function updateTask(TaskEntity $entity, array $options = []);
 
     /**
      * List all tasks
@@ -51,9 +50,9 @@ interface TaskServiceInterface
     /**
      * Deletes a TaskEntity with the requested $taskId if exists
      *
-     * @param int $taskId
+     * @param TaskEntity $entity
      * @param array $options
      * @return mixed
      */
-    public function deleteTask(int $taskId, array $options = []);
+    public function deleteTask(TaskEntity $entity, array $options = []);
 }

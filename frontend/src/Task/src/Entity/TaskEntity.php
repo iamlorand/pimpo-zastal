@@ -37,6 +37,11 @@ class TaskEntity extends Entity
     protected $date;
 
     /**
+     * @var CategoryEntity
+     */
+    protected $category;
+
+    /**
      * @return int
      */
     public function getId()
@@ -131,4 +136,23 @@ class TaskEntity extends Entity
     {
         $this->date = $date;
     }
+
+    /**
+     * @return CategoryEntity
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
+
+    /**
+     * @param CategoryEntity $category
+     * @return TaskEntity
+     */
+    public function setCategory($category)
+    {
+        $this->category = $category;
+        return $this;
+    }
+
 }
